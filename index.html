@@ -944,7 +944,7 @@
       const variant = p.variant ? ` - ${p.variant}` : "";
       lines.push(`🔧 *Equipo:* ${p.productNo}${pot}${variant}`);
       lines.push(`📦 *Descripción:* ${p.description || (p.kind === "motor" ? "MOTOR" : "EQUIPO")}`);
-      lines.push(`💰 *Precio:* USD ${p.priceUsd}`);
+      lines.push(`💰 *Precio:* USD ${p.priceUsd} + IVA`);
       lines.push("");
       if (Array.isArray(p.preventiveParts) && p.preventiveParts.length) {
         lines.push("🛠️ *Repuestos preventivos disponibles*");
@@ -968,7 +968,7 @@
       const variant = p.variant ? ` - ${p.variant}` : "";
       lines.push(`🔧 *Equipo:* ${p.productNo}${pot}${variant}`);
       lines.push(`📦 *Descripción:* ${p.description}`);
-      lines.push(`💸 *Valor rental mensual:* USD ${p.rentalUsd}`);
+      lines.push(`💸 *Valor rental mensual:* USD ${p.rentalUsd} + IVA`);
       lines.push("");
       if (p.photoUrl && p.photoUrl.trim()) {
         lines.push(`📷 *Ver foto:* ${p.photoUrl}`);
@@ -1149,7 +1149,7 @@
       meta.innerHTML = `
         <div><b>Potencia:</b> ${potenciaTxt}</div>
         <div><b>Modelo:</b> ${escapeHtml(p.productNo)}</div>
-        <div><b>Precio:</b> ${CURRENCY} ${escapeHtml(p.priceUsd)}</div>
+        <div><b>Precio:</b> ${CURRENCY} ${escapeHtml(p.priceUsd)} + IVA</div>
         <div><b>Tipo:</b> ${p.kind === "motor" ? "Motor" : "Generador"}</div>
       `;
 
@@ -1249,7 +1249,7 @@
         };
         const box = document.createElement("div");
         box.className = "rentalBox";
-        box.innerHTML = `<b>Valor rental mensual:</b> ${CURRENCY} ${escapeHtml(p.rentalUsd)}`;
+        box.innerHTML = `<b>Valor rental mensual:</b> ${CURRENCY} ${escapeHtml(p.rentalUsd)} + IVA`;
         rentalWrap.appendChild(box);
         actions.appendChild(btnRental);
       }
@@ -1323,7 +1323,7 @@
         tr.innerHTML = `
           <td>${escapeHtml(it.desc)}</td>
           <td>${escapeHtml(it.productNo)}</td>
-          <td>${CURRENCY} ${escapeHtml(it.priceUsd)}</td>
+          <td>${CURRENCY} ${escapeHtml(it.priceUsd)} + IVA</td>
         `;
         tbody.appendChild(tr);
       }
